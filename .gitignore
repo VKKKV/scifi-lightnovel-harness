@@ -1,12 +1,7 @@
-# 小说正文（只本地保留，不提交）
-projects/*/正文/
-projects/*/大纲/细纲/
-projects/*/记忆/章节摘要/*.md
+# 项目专属文件（不进入公开仓库）
+.harness/current-project.md
 
-# 保留项目约束和状态文件可提交
-!projects/*/constraints.md
-!projects/*/README.md
-!projects/*/状态/
-!projects/*/记忆/伏笔登记表.md
-!projects/*/记忆/事件索引.md
-!projects/*/记忆/风格参考.md
+# 项目层（由各项目维护，不在 harness 仓库内）
+projects/*
+!projects/.gitkeep
+!projects/模板-*.md

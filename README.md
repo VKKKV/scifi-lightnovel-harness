@@ -1,48 +1,65 @@
 # Sci-Fi Light Novel Harness
 
-归零 项目的 AI 写作管线。
+科幻轻小说的 AI 写作管线框架。L1-L3 四层 Agent 架构 + 6 审查模块 + 项目约束分离。
+
+适用于科幻悬疑、黑客文化、都市日常等元素的轻小说创作。
 
 ## 架构
 
 ```
-scifi-lightnovel-harness/
-├── SKILL.md                          ← L1: 主编 Agent（协调层）
-├── .harness/
-│   ├── agents/                       ← L2: 专业 Agent
-│   │   ├── 上下文Agent.md            ← 状态追踪 + 上下文打包
-│   │   ├── 规划Agent.md              ← 剧情构思 + 大纲设计
-│   │   ├── 写作Agent.md              ← 正文生成
-│   │   └── 审稿Agent.md              ← 多维度质量审查
-│   ├── skills/                       ← L3: 审查模块
-│   │   ├── sci-fi-consistency/       ← 科学自洽（原创）
-│   │   ├── light-novel-style/        ← 轻小说风格（原创）
-│   │   ├── daily-weave/              ← 日常主线交织（原创）
-│   │   ├── tech-accuracy/            ← 科幻技术自洽（原创）
-│   │   ├── human-linguistics/        ← 语感/AI味（继承）
-│   │   └── plot-review/              ← 情节一致性（继承）
-│   ├── rules/                        ← 规则体系
-│   │   ├── 用户身份适配指南.md
-│   │   ├── 审稿输出模板.md
-│   │   └── 反馈追踪流程.md
-│   ├── projects/
-│   │   └── 模板-科幻轻小说.md        ← 通用题材约束（R1-R8）
-│   ├── current-project.md            ← 当前项目指针
-│   ├── memory/README.md
-│   └── cases/
-├── projects/
-│   └── 归零/                         ← 项目专属
-│       ├── constraints.md            ← R-G 系列规则 + 卷级周期
-│       ├── 状态/主角.md
-│       └── 记忆/（伏笔/事件/风格/章节摘要）
-└── README.md
+L1: 主编 Agent (SKILL.md)              ← 协调者，不亲自执行
+L2: 4 专业 Agent (.harness/agents/)     ← 上下文/规划/写作/审稿
+L3: 6 审查模块 (.harness/skills/)       ← 原创 4 + 继承 2
+L0: 项目层 (.harness-project/)          ← 项目专属约束/状态/记忆
 ```
 
-## 使用
+## 审查模块
 
-加载 SKILL.md 后，主编 Agent 自动协调全管线。
-当前项目：归零（第一卷「连接」）。
+| 模块 | 用途 | 来源 |
+|:-----|:-----|:-----|
+| `sci-fi-consistency` | 科学自洽：设定逻辑、蝴蝶效应、术语层级 | 原创 |
+| `light-novel-style` | 轻小说风格：对话、情感克制、翻译腔 | 原创 |
+| `daily-weave` | 日常主线交织：功能性、密度统计 | 原创 |
+| `tech-accuracy` | 技术自洽：黑客技术描写准确性 | 原创 |
+| `human-linguistics` | 通用语感：AI 味检测、语病诊断 | 继承 |
+| `plot-review` | 通用情节一致性：角色/时间线/伏笔 | 继承 |
+
+## 快速开始
+
+```bash
+git clone <this-repo>
+cd scifi-lightnovel-harness
+
+# 1. 创建项目约束
+cp .harness/projects/模板-科幻轻小说.md my-novel/.harness-project/constraints.md
+
+# 2. 编辑约束 → 填入角色名、卷周期、伏笔清单
+
+# 3. 指向项目
+echo "path: /path/to/my-novel" > .harness/current-project.md
+
+# 4. 加载 SKILL.md 到你的 AI Agent → 开始写作
+```
+
+## 项目结构
+
+```
+你的小说项目/
+├── 设定/                  ← 世界观/角色/大纲
+├── 正文/                  ← 各章正文
+└── .harness-project/      ← Harness 项目层
+    ├── constraints.md     ← R-G 系列项目约束
+    ├── 状态/              ← 角色状态
+    └── 记忆/              ← 伏笔/事件/摘要
+```
+
+Harness 主体与项目完全解耦——一个 Harness 可复用于多个小说项目。
 
 ## 继承自
 
-- [novel-harness](https://github.com/manhai934/novel-harness) — Agent 架构 + 语感/情节审查
-- 天命AI写手 — 题材 Spec 方法论
+- [novel-harness](https://github.com/manhai934/novel-harness) — Agent 架构 + 语感/情节审查模块
+- 天命AI写手 — 题材 Spec 方法论 + 参数化配置
+
+## License
+
+MIT
