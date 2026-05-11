@@ -62,4 +62,6 @@ Harness 主体与项目完全解耦——一个 Harness 可复用于多个小说
 
 ## License
 
-MIT
+GNU General Public License v3.0 — see [LICENSE](LICENSE)
+
+工具本身 copyleft；用本工具产出的文字内容版权归创作者所有，不受 GPL 约束。
