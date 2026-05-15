@@ -150,52 +150,54 @@
 ## 五、项目体系
 
 ```
-scifi-lightnovel-harness/          ← 本仓库（通用框架 + 项目示例）
+scifi-lightnovel-harness/          ← 本仓库（纯通用框架）
 ├── SKILL.md                       ← 主编 Agent
-├── README.md
 ├── .harness/
 │   ├── agents/                    ← 4 个 Agent
 │   ├── skills/                    ← 6 个审查模块
 │   ├── rules/                     ← 通用规则
 │   ├── projects/                  ← 题材模板
-│   ├── memory/                    ← 状态/记忆模板
-│   └── current-project.md        ← 当前活跃项目指针
-├── projects/                      ← 实际小说项目
-│   └── 归零/                      ← 一项目一目录
-│       ├── AGENTS.md              ← opencode 入口
-│       ├── 设定/
-│       │   ├── 核心设定.md
-│       │   ├── 世界观/
-│       │   ├── 角色/
-│       │   └── 大纲/
-│       ├── 正文/
-│       ├── 词条/
-│       └── .harness-project/
-│           ├── constraints.md
-│           ├── reports/
-│           ├── 状态/
-│           └── 记忆/
-└── ...
+│   └── current-project.md        ← 当前项目路径指针
+└── README.md
+
+你的小说项目/
+├── 设定/
+│   ├── 核心设定.md                 ← 世界观/力量体系/背景
+│   ├── 世界观/
+│   ├── 角色/                       ← 每角色一个 .md
+│   └── 大纲/                       ← 大纲.md + 各卷细纲
+├── 正文/                          ← 第N章.md
+├── 词条/                          ← 写作参考 glossary（可选）
+└── .harness-project/              ← 项目专属
+    ├── constraints.md             ← R-G 系列项目约束
+    ├── reports/                   ← 审查报告 + fix.md + 工作笔记
+    ├── 状态/
+    │   ├── 主角.md                ← 主角状态追踪
+    │   └── 配角/                  ← 主要配角每人一个 .md
+    └── 记忆/
+        ├── 伏笔登记表.md
+        ├── 事件索引.md
+        └── 章节摘要.md            ← 每章 ~200 字摘要
+```
 
 ### 新建项目
 
 ```bash
-# 1. 在 projects/ 下创建项目目录
-PROJECT=你的小说名
-mkdir -p projects/$PROJECT/{设定/{世界观,角色,大纲},正文,词条,.harness-project/{reports,状态/配角,记忆}}
+# 1. 创建目录结构
+mkdir -p 你的小说项目/{设定/{世界观,角色,大纲},正文,词条,.harness-project/{reports,状态/配角,记忆}}
 
 # 2. 复制题材约束模板
-cp .harness/projects/模板-科幻轻小说.md projects/$PROJECT/.harness-project/constraints.md
+cp .harness/projects/模板-科幻轻小说.md 你的小说项目/.harness-project/constraints.md
 
 # 3. 复制状态/记忆模板
-cp .harness/memory/主角状态模板.md projects/$PROJECT/.harness-project/状态/主角.md
-cp .harness/memory/伏笔登记表模板.md projects/$PROJECT/.harness-project/记忆/伏笔登记表.md
-cp .harness/memory/事件索引模板.md projects/$PROJECT/.harness-project/记忆/事件索引.md
-cp .harness/memory/章节摘要模板.md projects/$PROJECT/.harness-project/记忆/章节摘要.md
-cp .harness/memory/角色状态模板.md projects/$PROJECT/.harness-project/状态/配角/模板.md
+cp .harness/memory/主角状态模板.md 你的小说项目/.harness-project/状态/主角.md
+cp .harness/memory/伏笔登记表模板.md 你的小说项目/.harness-project/记忆/伏笔登记表.md
+cp .harness/memory/事件索引模板.md 你的小说项目/.harness-project/记忆/事件索引.md
+cp .harness/memory/章节摘要模板.md 你的小说项目/.harness-project/记忆/章节摘要.md
+cp .harness/memory/角色状态模板.md 你的小说项目/.harness-project/状态/配角/模板.md
 
 # 4. 编辑 constraints.md → 填入角色名/卷周期/伏笔清单
-# 5. 编辑 .harness/current-project.md → path: projects/$PROJECT
+# 5. 编辑 .harness/current-project.md → 填入项目路径
 ```
 
 ---
