@@ -2,7 +2,7 @@
 
 > 你是科幻轻小说编辑 Agent——**创作管线的协调者**，不是执行者。
 > 本文件为**主编 Agent 定义**，负责理解需求、分派任务、协调专业 Agent、质量裁定。
-> 专业审查和规划工作由下属 Agent 执行（详见 `.harness/agents/` 目录）。
+> 专业审查和规划工作由下属 Agent 执行（详见 `harness/agents/` 目录）。
 >
 > 项目专属约束由各项目的 `.harness-project/constraints.md` 提供。
 > 本文件只包含通用框架——不包含任何特定小说的人物名/卷周期/世界观。
@@ -54,7 +54,7 @@
 
 ### Step -1：项目上下文注入
 
-读取 `.harness/current-project.md` → 获取项目路径 → 加载 `{项目路径}/.harness-project/constraints.md`。
+读取 `harness/current-project.md` → 获取项目路径 → 加载 `{项目路径}/.harness-project/constraints.md`。
 
 ### Step 0：任务分类
 
@@ -129,21 +129,21 @@
 
 | Agent | 职责 | 文件 |
 |:------|:------|:-----|
-| **上下文 Agent** | 状态追踪、伏笔管理、上下文打包 | `.harness/agents/上下文Agent.md` |
-| **规划 Agent** | 剧情构思、设定扩展、反转/钩子 | `.harness/agents/规划Agent.md` |
-| **写作 Agent** | 基于大纲和上下文包生成正文 | `.harness/agents/写作Agent.md` |
-| **审稿 Agent** | 调用审查子模块，执行全面/专项审查 | `.harness/agents/审稿Agent.md` |
+| **上下文 Agent** | 状态追踪、伏笔管理、上下文打包 | `harness/agents/上下文Agent.md` |
+| **规划 Agent** | 剧情构思、设定扩展、反转/钩子 | `harness/agents/规划Agent.md` |
+| **写作 Agent** | 基于大纲和上下文包生成正文 | `harness/agents/写作Agent.md` |
+| **审稿 Agent** | 调用审查子模块，执行全面/专项审查 | `harness/agents/审稿Agent.md` |
 
 ### 审查子模块
 
 | 模块 | 类型 | 文件 |
 |:-----|:-----|:-----|
-| sci-fi-consistency | 原创 | `.harness/skills/sci-fi-consistency/SKILL.md` |
-| light-novel-style | 原创 | `.harness/skills/light-novel-style/SKILL.md` |
-| daily-weave | 原创 | `.harness/skills/daily-weave/SKILL.md` |
-| tech-accuracy | 原创 | `.harness/skills/tech-accuracy/SKILL.md` |
-| human-linguistics | 继承 | `.harness/skills/human-linguistics/SKILL.md` |
-| plot-review | 继承 | `.harness/skills/plot-review/SKILL.md` |
+| sci-fi-consistency | 原创 | `harness/skills/sci-fi-consistency/SKILL.md` |
+| light-novel-style | 原创 | `harness/skills/light-novel-style/SKILL.md` |
+| daily-weave | 原创 | `harness/skills/daily-weave/SKILL.md` |
+| tech-accuracy | 原创 | `harness/skills/tech-accuracy/SKILL.md` |
+| human-linguistics | 继承 | `harness/skills/human-linguistics/SKILL.md` |
+| plot-review | 继承 | `harness/skills/plot-review/SKILL.md` |
 
 ---
 
@@ -153,7 +153,7 @@
 scifi-lightnovel-harness/          ← 本仓库（纯通用框架）
 ├── SKILL.md                       ← 主编 Agent
 ├── README.md
-├── .harness/
+├── harness/
 │   ├── agents/                    ← 4 个 Agent
 │   ├── skills/                    ← 6 个审查模块
 │   ├── rules/                     ← 通用规则
@@ -176,17 +176,17 @@ scifi-lightnovel-harness/          ← 本仓库（纯通用框架）
 mkdir -p 你的小说项目/{设定/{世界观,角色,大纲},正文,词条,.harness-project/{reports,状态/配角,记忆}}
 
 # 2. 复制题材约束模板
-cp .harness/projects/模板-科幻轻小说.md 你的小说项目/.harness-project/constraints.md
+cp harness/projects/模板-科幻轻小说.md 你的小说项目/.harness-project/constraints.md
 
 # 3. 复制状态/记忆模板
-cp .harness/memory/主角状态模板.md 你的小说项目/.harness-project/状态/主角.md
-cp .harness/memory/伏笔登记表模板.md 你的小说项目/.harness-project/记忆/伏笔登记表.md
-cp .harness/memory/事件索引模板.md 你的小说项目/.harness-project/记忆/事件索引.md
-cp .harness/memory/章节摘要模板.md 你的小说项目/.harness-project/记忆/章节摘要.md
-cp .harness/memory/角色状态模板.md 你的小说项目/.harness-project/状态/配角/模板.md
+cp harness/memory/主角状态模板.md 你的小说项目/.harness-project/状态/主角.md
+cp harness/memory/伏笔登记表模板.md 你的小说项目/.harness-project/记忆/伏笔登记表.md
+cp harness/memory/事件索引模板.md 你的小说项目/.harness-project/记忆/事件索引.md
+cp harness/memory/章节摘要模板.md 你的小说项目/.harness-project/记忆/章节摘要.md
+cp harness/memory/角色状态模板.md 你的小说项目/.harness-project/状态/配角/模板.md
 
 # 4. 编辑 constraints.md → 填入角色名/卷周期/伏笔清单
-# 5. 编辑 .harness/current-project.md → 填入项目路径
+# 5. 编辑 harness/current-project.md → 填入项目路径
 ```
 
 ---
