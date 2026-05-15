@@ -152,33 +152,22 @@
 ```
 scifi-lightnovel-harness/          ← 本仓库（纯通用框架）
 ├── SKILL.md                       ← 主编 Agent
+├── README.md
 ├── .harness/
 │   ├── agents/                    ← 4 个 Agent
 │   ├── skills/                    ← 6 个审查模块
 │   ├── rules/                     ← 通用规则
 │   ├── projects/                  ← 题材模板
-│   └── current-project.md        ← 当前项目路径指针
-└── README.md
-
-你的小说项目/
-├── 设定/
-│   ├── 核心设定.md                 ← 世界观/力量体系/背景
-│   ├── 世界观/
-│   ├── 角色/                       ← 每角色一个 .md
-│   └── 大纲/                       ← 大纲.md + 各卷细纲
-├── 正文/                          ← 第N章.md
-├── 词条/                          ← 写作参考 glossary（可选）
-└── .harness-project/              ← 项目专属
-    ├── constraints.md             ← R-G 系列项目约束
-    ├── reports/                   ← 审查报告 + fix.md + 工作笔记
-    ├── 状态/
-    │   ├── 主角.md                ← 主角状态追踪
-    │   └── 配角/                  ← 主要配角每人一个 .md
-    └── 记忆/
-        ├── 伏笔登记表.md
-        ├── 事件索引.md
-        └── 章节摘要.md            ← 每章 ~200 字摘要
-```
+│   ├── memory/                    ← 状态/记忆模板
+│   └── current-project.md        ← 当前活跃项目指针（gitignored）
+├── projects/                      ← 小说项目目录（gitignored，各项目自行维护）
+│   └── 归零/                      ← 示例：一项目一目录
+│       ├── AGENTS.md
+│       ├── 设定/{核心设定,世界观,角色,大纲}/
+│       ├── 正文/
+│       ├── 词条/
+│       └── .harness-project/{constraints,reports,状态,记忆}/
+└── ...
 
 ### 新建项目
 
