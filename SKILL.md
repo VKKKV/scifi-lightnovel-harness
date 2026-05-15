@@ -161,20 +161,43 @@ scifi-lightnovel-harness/          ← 本仓库（纯通用框架）
 └── README.md
 
 你的小说项目/
-├── 设定/                          ← 世界观/角色/大纲
-├── 正文/                          ← 各章正文
+├── 设定/
+│   ├── 核心设定.md                 ← 世界观/力量体系/背景
+│   ├── 世界观/
+│   ├── 角色/                       ← 每角色一个 .md
+│   └── 大纲/                       ← 大纲.md + 各卷细纲
+├── 正文/                          ← 第N章.md
+├── 词条/                          ← 写作参考 glossary（可选）
 └── .harness-project/              ← 项目专属
     ├── constraints.md             ← R-G 系列项目约束
-    ├── 状态/                      ← 角色状态
-    └── 记忆/                      ← 伏笔/事件/摘要
+    ├── reports/                   ← 审查报告 + fix.md + 工作笔记
+    ├── 状态/
+    │   ├── 主角.md                ← 主角状态追踪
+    │   └── 配角/                  ← 主要配角每人一个 .md
+    └── 记忆/
+        ├── 伏笔登记表.md
+        ├── 事件索引.md
+        └── 章节摘要.md            ← 每章 ~200 字摘要
 ```
 
 ### 新建项目
 
 ```bash
-cp .harness/projects/模板-科幻轻小说.md 你的项目/.harness-project/constraints.md
-# 编辑 constraints.md → 填入角色名/卷周期/伏笔清单
-# 编辑 .harness/current-project.md → 填入项目路径
+# 1. 创建目录结构
+mkdir -p 你的小说项目/{设定/{世界观,角色,大纲},正文,词条,.harness-project/{reports,状态/配角,记忆}}
+
+# 2. 复制题材约束模板
+cp .harness/projects/模板-科幻轻小说.md 你的小说项目/.harness-project/constraints.md
+
+# 3. 复制状态/记忆模板
+cp .harness/memory/主角状态模板.md 你的小说项目/.harness-project/状态/主角.md
+cp .harness/memory/伏笔登记表模板.md 你的小说项目/.harness-project/记忆/伏笔登记表.md
+cp .harness/memory/事件索引模板.md 你的小说项目/.harness-project/记忆/事件索引.md
+cp .harness/memory/章节摘要模板.md 你的小说项目/.harness-project/记忆/章节摘要.md
+cp .harness/memory/角色状态模板.md 你的小说项目/.harness-project/状态/配角/模板.md
+
+# 4. 编辑 constraints.md → 填入角色名/卷周期/伏笔清单
+# 5. 编辑 .harness/current-project.md → 填入项目路径
 ```
 
 ---
