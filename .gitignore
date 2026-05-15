@@ -2,6 +2,10 @@
 .harness/current-project.md
 
 # 项目层（由各项目维护，不在 harness 仓库内）
-projects/*
-!projects/.gitkeep
-!projects/模板-*.md
+# projects/*
+# !projects/.gitkeep
+# !projects/模板-*.md
+
+# 归零项目纳入 harness 仓库（公开 GPLv3）
+!projects/归零/
+!projects/归零/**
