@@ -37,8 +37,8 @@
 ### 写作前打包
 ```
 主编通知"准备写第N章" →
-  Step 1: 读取项目约束 → {项目}/.harness-project/constraints.md
-  Step 2: 读取主角状态 → {项目}/.harness-project/状态/主角.md
+  Step 1: 读取项目约束 → {项目}/harness-project/constraints.md
+  Step 2: 读取主角状态 → {项目}/harness-project/状态/主角.md
   Step 3: 查询伏笔登记表 → 活跃伏笔
   Step 4: 读取最近3章摘要
   Step 5: 打包 → 传给写作 Agent

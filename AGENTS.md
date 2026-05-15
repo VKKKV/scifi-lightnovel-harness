@@ -12,9 +12,9 @@
 
 ```bash
 PROJECT=你的小说名
-mkdir -p projects/$PROJECT/{设定/{世界观,角色,大纲},正文,词条,.harness-project/{reports,状态/配角,记忆}}
-cp harness/projects/模板-科幻轻小说.md projects/$PROJECT/.harness-project/constraints.md
-cp harness/memory/*模板.md projects/$PROJECT/.harness-project/状态/或记忆/
+mkdir -p projects/$PROJECT/{设定/{世界观,角色,大纲},正文,词条,harness-project/{reports,状态/配角,记忆}}
+cp harness/projects/模板-科幻轻小说.md projects/$PROJECT/harness-project/constraints.md
+cp harness/memory/*模板.md projects/$PROJECT/harness-project/状态/或记忆/
 echo "path: projects/$PROJECT" > harness/current-project.md
 ```
 

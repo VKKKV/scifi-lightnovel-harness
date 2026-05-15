@@ -58,7 +58,7 @@
 
 项目路径：/home/kita/code/novel/归零/
 章节路径：正文/第1章.md 到 正文/第9章.md
-设定文件：.harness-project/constraints.md
+设定文件：harness-project/constraints.md
 
 审查规范（输出中文）：
 按以下6维度逐章扫描，每个问题标注 [章节:段落位置] + 等级 + 规则依据 + 建议修复。
@@ -101,7 +101,7 @@
 - 输出：偏差清单 + 严重度 + 修复建议
 
 **子代理 B：设定 vs 正文**
-- 读取 `.harness-project/constraints.md` + `笔记.md`
+- 读取 `harness-project/constraints.md` + `笔记.md`
 - 逐条检查：硬约束、角色知识边界、Want/Need/Flaw、设定修订项
 - 输出：违规清单 + 设定规则 + 严重度 + 修复建议
 

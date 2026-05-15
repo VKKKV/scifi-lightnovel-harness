@@ -10,7 +10,7 @@
 L1: 主编 Agent (SKILL.md)              ← 协调者，不亲自执行
 L2: 4 专业 Agent (harness/agents/)     ← 上下文/规划/写作/审稿
 L3: 6 审查模块 (harness/skills/)       ← 原创 4 + 继承 2
-L0: 项目层 (.harness-project/)          ← 项目专属约束/状态/记忆
+L0: 项目层 (harness-project/)          ← 项目专属约束/状态/记忆
 ```
 
 ## 审查模块
@@ -31,7 +31,7 @@ git clone <this-repo>
 cd scifi-lightnovel-harness
 
 # 1. 创建项目约束
-cp harness/projects/模板-科幻轻小说.md my-novel/.harness-project/constraints.md
+cp harness/projects/模板-科幻轻小说.md my-novel/harness-project/constraints.md
 
 # 2. 编辑约束 → 填入角色名、卷周期、伏笔清单
 
@@ -47,7 +47,7 @@ echo "path: /path/to/my-novel" > harness/current-project.md
 你的小说项目/
 ├── 设定/                  ← 世界观/角色/大纲
 ├── 正文/                  ← 各章正文
-└── .harness-project/      ← Harness 项目层
+└── harness-project/      ← Harness 项目层
     ├── constraints.md     ← R-G 系列项目约束
     ├── 状态/              ← 角色状态
     └── 记忆/              ← 伏笔/事件/摘要
